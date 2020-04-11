@@ -1,8 +1,11 @@
 @import 'normalize';
 
+@import 'bootstrap/bootstrap';
+
 @import 'variables';
 
 @import 'mixins';
+
 
 
 * {
@@ -22,12 +25,14 @@ button {
 
 body {
     min-height: 100%;
-    @include font(1.4rem, $text-color, 500, $text-ff, 1.8);
+    @include font(1.4rem, $text-color, 900, $text-ff, 1.8);
 }
 
 .container {
     max-width: 1140px;
     margin: 0 auto;
+    height: 100%;
+    position: relative;
 }
 
 .section{
@@ -37,7 +42,9 @@ body {
 }
 
 .bg{
+    user-select: none;
     & img{
+        z-index: -1;
         position: absolute;
         min-width: 100%;
         min-height: 100%;
@@ -54,9 +61,72 @@ body {
         }
     }
 }
+h1{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    @include font(2.5rem, $text-color, 700, $title-ff, 1.8);
+    letter-spacing: .2rem;
+    // -webkit-text-stroke: 1px white;
+    // color: white;
+    // text-shadow: 1px 1px 0px $text-color;
+}
 
-@import 'bootstrap/bootstrap';
+.btn{
+    background: rgba(0,0,0,.5);
+    color: $brand-color;
+    padding: 1rem 2.5rem 1rem 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    border: 1px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    text-shadow: 0px 0px 0px #000;
+    
+    border-image-source: linear-gradient(to right, rgba(0,0,0,1) 0%, $brand-color 30%, #fff 50%, $brand-color 70%, rgba(0,0,0,1) 100%);
+    cursor: pointer;
+    box-shadow: inset 0 0 10px #fff;
+
+    @include hover{
+        // border-image-source: linear-gradient(to right, #fff 0%, $brand-color 30%, rgba(0,0,0,1) 50%, $brand-color 70%, #fff 100%);
+        box-shadow: inset 0 0 10px $brand-color;
+        text-shadow: 0px -1px 2px #000;
+        // background-color: #e6e8e781;
+        // text-shadow: 1px 1px 0 #000;
+    }
+}
+
+
+
+@media screen and (min-width: 576px){
+    h1{
+        font-size: 3rem;
+        letter-spacing: .3rem;
+    }
+}
+
+@media screen and (min-width: 768px){
+    h1{
+        font-size: 3.5rem;
+        letter-spacing: .4rem;
+    }
+}
+
+@media screen and (min-width: 992px){
+    h1{
+        font-size: 4rem;
+        letter-spacing: .4rem;
+        font-weight: 700;
+    }
+}
+
+// @media screen and (min-width: 1200px){
+//     h1{
+//         font-size: 5rem;
+//         letter-spacing: .5rem;
+//         font-weight: 700;
+//     }
+// }
 
 @import 'pages/home';
-
-@media screen and (min-width: 540px) and (orientation: portrait) {}
