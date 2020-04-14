@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const htmlPlugins = generateHtmlPlugins('./src/html/views');
+const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 
 
@@ -14,7 +15,7 @@ function generateHtmlPlugins(templateDir) {
         const extension = parts[1];
         return new HtmlWebpackPlugin({
             filename: `html/${name}.html`,
-            template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+            template: path.resolve(__dirname, `${templateDir}`,`${name}.${extension}`),
             inject: false,
         })
     })
@@ -25,13 +26,26 @@ function generateHtmlPlugins(templateDir) {
 module.exports = {
     entry: [
         './src/js/main.js',
-        './src/scss/styles.scss'
     ],
     output: {
-        filename: './js/main.js'
+        filename: 'js/main.js'
     },
     module: {
         rules: [
+
+            //js
+
+            {
+                test: /\.js$/,
+                include: path.resolve(__dirname, 'src/js'),
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
 
             //html packing
 
@@ -49,6 +63,7 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
+                        //resolve ur() and @import inside CSS
                         loader: "css-loader",
                         options: {
                             importLoaders: 2,
@@ -56,6 +71,7 @@ module.exports = {
                         }
                     },
                     {
+                        // autoprefixer and minify
                         loader: 'postcss-loader',
                         options: {
                             plugins: () => [
@@ -65,13 +81,42 @@ module.exports = {
                         }
                     },
                     {
+                        // transform SASS => CSS
                         loader: "sass-loader",
                         options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            implementation: require('sass')
                         }
                     }
                 ]
             },
+
+            // //img
+            // {
+            //     test: /\.(png|jpe?g|gif|svg|ico)$/,
+            //     use: [
+            //         {
+            //             loader: "file-loader",
+            //             options: {
+            //                 name: '[path][name].[ext]'.replace('src/', ''),
+            //             },
+            //         }
+            //     ],
+            // },
+
+            // //fonts
+            // {
+            //     test: /\.(woff|woff2|ttf|otf|eot)$/,
+            //     use: [
+            //         {
+            //             // Using file-loader too
+            //             loader: "file-loader",
+            //             options: {
+            //                 outputPath: 'fonts'
+            //             }
+            //         }
+            //     ]
+            // },
         ]
     },
     plugins: [
@@ -81,10 +126,25 @@ module.exports = {
             filename: './css/styles.min.css',
         }),
 
+        new webpack.HotModuleReplacementPlugin(),
+
         new CopyPlugin([
             { from: 'src/img', to: 'img' },
           ]),
     ].concat(htmlPlugins),
 
-    watch: true
+    devServer: {
+        host: '192.168.0.187',
+        disableHostCheck: true,
+        // overlay: true,
+        port: 1409,
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        open: true,
+        openPage: ['html/home.html'],
+        hot: true,
+        watchContentBase: true,
+        writeToDisk: true,
+    },
+
 };
