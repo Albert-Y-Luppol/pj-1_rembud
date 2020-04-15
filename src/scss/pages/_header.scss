@@ -1,0 +1,31 @@
+.logo{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+
+    & img{
+        height: 9rem;
+    }
+
+    &__link {
+        display: inline-block;
+        padding: 1rem;
+    }
+}
+
+@media screen and (min-width: 576px){
+    .logo{
+        & img{
+            height: 12rem;
+        }
+    }
+}
+
+@media screen and (min-width: 768px){
+    
+}
+
+@media screen and (min-width: 992px){
+   
+}
