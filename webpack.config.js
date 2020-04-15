@@ -126,7 +126,7 @@ module.exports = {
             filename: './css/styles.min.css',
         }),
 
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
 
         new CopyPlugin([
             { from: 'src/img', to: 'img' },
@@ -135,14 +135,14 @@ module.exports = {
 
     devServer: {
         host: '192.168.0.187',
-        disableHostCheck: true,
+        // disableHostCheck: true,
         // overlay: true,
         port: 1409,
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         open: true,
         openPage: ['html/home.html'],
-        hot: true,
+        // hot: true,
         watchContentBase: true,
         writeToDisk: true,
     },
