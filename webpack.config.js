@@ -104,19 +104,21 @@ module.exports = {
             //     ],
             // },
 
-            // //fonts
-            // {
-            //     test: /\.(woff|woff2|ttf|otf|eot)$/,
-            //     use: [
-            //         {
-            //             // Using file-loader too
-            //             loader: "file-loader",
-            //             options: {
-            //                 outputPath: 'fonts'
-            //             }
-            //         }
-            //     ]
-            // },
+            //fonts
+            {
+                test: /\.(woff|woff2|ttf|otf|eot)$/,
+                use: [
+                    {
+                        // Using file-loader too
+                        loader: "file-loader",
+                        options: {
+                            name: '[name].[hash].[ext]',
+                            publicPath: '../fonts',
+                            outputPath: 'fonts'
+                        }
+                    }
+                ]
+            },
         ]
     },
     plugins: [
@@ -134,7 +136,7 @@ module.exports = {
     ].concat(htmlPlugins),
 
     devServer: {
-        host: '192.168.0.187',
+        host: '192.168.0.102',
         // disableHostCheck: true,
         // overlay: true,
         port: 1409,

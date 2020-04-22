@@ -339,9 +339,22 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "Raleway";
+  src: url(../fonts/Raleway-Medium.e53be7c5835cd15837b263069f417f82.woff2) format("woff2"), url(../fonts/Raleway-Medium.071cd30dc4bebc5af155abe234f4f9d6.woff) format("woff"), url(../fonts/Raleway-Medium.d2e9c8ced6ed323633e6e39d2a616464.otf) format("otf"), url(../fonts/Raleway-Medium.f42f0130676c0d1db5c8a2ac045e59db.ttf) format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url(../fonts/Raleway-Regular.843d1691737aa781725796854b7f2adc.woff2) format("woff2"), url(../fonts/Raleway-Regular.afee7f2156d18c666b103b372e85be2b.woff) format("woff"), url(../fonts/Raleway-Regular.ee5ab592883b915584805441a14c4c61.otf) format("otf"), url(../fonts/Raleway-Regular.0c4f82c155c2f75fe84339fbe5eed194.ttf) format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
 * {
   box-sizing: border-box;
   outline: none;
+  color: inherit;
 }
 
 html {
@@ -512,7 +525,7 @@ h1 {
 }
 .hero__input {
   display: inline-block;
-  padding: 1.4rem 5rem 0.6rem 1rem;
+  padding: 1.4rem 1rem 0.6rem 1rem;
   cursor: pointer;
   position: relative;
   font-size: 1.5rem;
