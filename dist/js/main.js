@@ -406,6 +406,17 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
+/***/ "./node_modules/webpack/buildin/harmony-module.js":
+/*!*******************************************!*\
+  !*** (webpack)/buildin/harmony-module.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpackPolyfill) {\n\t\tvar module = Object.create(originalModule);\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"exports\", {\n\t\t\tenumerable: true\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/harmony-module.js?");
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/module.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
@@ -454,10 +465,23 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("/* WEBPACK VAR INJECTION */(function(module) {__webpack_require__(/*! ../scss/styles.scss */ \"./src/scss/styles.scss\"); // function importAll(r) {\n//     return r.keys().map(r);\n// }\n// const images = importAll(require.context('../img', true, /\\.(png|jpe?g|svg|ico)$/));\n\n\nif (module && module.hot) module.hot.accept();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/module.js */ \"./node_modules/webpack/buildin/module.js\")(module)))\n\n//# sourceURL=webpack:///./src/js/main.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _scripts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts */ \"./src/js/scripts.js\");\n__webpack_require__(/*! ../scss/styles.scss */ \"./src/scss/styles.scss\"); // function importAll(r) {\n//     return r.keys().map(r);\n// }\n// const images = importAll(require.context('../img', true, /\\.(png|jpe?g|svg|ico)$/));\n\n\nif (module && module.hot) module.hot.accept();\n\nObject(_scripts__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/js/main.js?");
+
+/***/ }),
+
+/***/ "./src/js/scripts.js":
+/*!***************************!*\
+  !*** ./src/js/scripts.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return mainMenu; });\nfunction mainMenu() {\n  'use strict';\n\n  var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;\n  var menu = document.querySelector('.main-menu');\n  document.querySelector('.main-menu__burger').addEventListener('click', function () {\n    menu.classList.toggle('main-menu--open');\n\n    if (document.body.style.overflow) {\n      document.body.style.overflow = \"\";\n      document.body.style.marginRight = \"\";\n    } else {\n      document.body.style.overflow = \"hidden\";\n      document.body.style.marginRight = scrollbarWidth + \"px\";\n    }\n  });\n}\n;\n\n//# sourceURL=webpack:///./src/js/scripts.js?");
 
 /***/ }),
 

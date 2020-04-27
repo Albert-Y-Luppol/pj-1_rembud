@@ -20,7 +20,27 @@
             </picture>
         </a>
     </div>
-    <div class="main-menu"></div>
+    <div class="main-menu">
+        <div class="main-menu__burger">
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+
+        <div class="menu">
+            <div class="menu__cover"></div>
+            <ul>
+                <li><a href="home.html">главная</a></li>
+                <li><a href="about.html">о нас</a></li>
+                <li><a href="services.html">услуги</a></li>
+                <li><a href="portfolio.html">портфолио</a></li>
+                <li><a href="team.html">команда</a></li>
+                <li><a href="vacancies.html">вакансии</a></li>
+                <li><a href="contacts.html">контакты</a></li>
+            </ul>
+        </div>
+        
+    </div>
 </header>
 
     <section id="hero" class="section hero">
@@ -36,6 +56,22 @@
         <img src="../img/home/bg__hero-l-sm.jpg " alt="Equipment repairs of all complexities!">
     </picture>
     <div class="container">
+        <div class="hero__menu">
+            <ul>
+                <li>
+                    <a href="#hero">Главная</a>
+                </li>
+                <li>
+                    <a href="#services">Услуги</a>
+                </li>
+                <li>
+                    <a href="#portfolio">Портфолио</a>
+                </li>
+                <li>
+                    <a href="#contacts">Контакты</a>
+                </li>
+            </ul>
+        </div>
         <div class="hero__main">
             <h1 class="hero__title">шаг к технологиям</h1>
             <form onsubmit="return false">
@@ -48,10 +84,27 @@
             </form>
         </div>
     </div>
+
+    <a href="#services" class="scroll">
+        <div class="scroll__box">
+            <svg>
+                <use xlink:href="#scroll"></use>
+            </svg>
+        </div>
+    </a>
+
 </section>
 
 
     <footer>My Footer</footer>
+    <svg class="svg-sprite">
+    <symbol version="1.1" id="scroll" x="0px" y="0px"  viewBox="0 0 30.727 30.727" style="enable-background:new 0 0 30.727 30.727;" xml:space="preserve">
+        <g>
+            <path d="M29.994,10.183L15.363,24.812L0.733,10.184c-0.977-0.978-0.977-2.561,0-3.536c0.977-0.977,2.559-0.976,3.536,0
+                l11.095,11.093L26.461,6.647c0.977-0.976,2.559-0.976,3.535,0C30.971,7.624,30.971,9.206,29.994,10.183z"/>
+        </g>
+    </symbol>
+</svg>
     <!-- <script src="js/jquery.min.js"></script> -->
 <script src="../js/main.js"></script>
     
