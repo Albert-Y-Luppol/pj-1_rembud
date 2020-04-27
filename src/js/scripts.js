@@ -1,6 +1,7 @@
 export default function mainMenu(){
     'use strict';
     let scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    let body = document.body.querySelector('.body');
     let menu = document.querySelector('.main-menu');
     document.querySelector('.main-menu__burger').addEventListener('click', function(){
         menu.classList.toggle('main-menu--open');

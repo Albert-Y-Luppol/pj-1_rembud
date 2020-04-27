@@ -5,13 +5,15 @@
     <title>RemBud MGM</title>
 </head>
 <body>
-    <%= _.template(require('./../includes/header.html').default)() %>
+    <main class="body">
+        <%= _.template(require('./../includes/header.html').default)() %>
 
-    <%= _.template(require('./../includes/home/hero.html').default)() %>
+        <%= _.template(require('./../includes/home/hero.html').default)() %>
 
-    <%= _.template(require('./../includes/footer.html').default)() %>
-    <%= _.template(require('./../includes/home/svg-sprite.html').default)() %>
-    <%= _.template(require('./../includes/foot.html').default)() %>
+        <%= _.template(require('./../includes/footer.html').default)() %>
+        <%= _.template(require('./../includes/home/svg-sprite.html').default)() %>
+        <%= _.template(require('./../includes/foot.html').default)() %>
     
+    </main>
 </body>
 </html>
