@@ -816,13 +816,13 @@ h1 {
           user-select: none;
 }
 .main-menu__burger {
-  left: -6rem;
+  left: -5rem;
   top: 2rem;
   position: relative;
   font-size: 0;
   display: inline-block;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   cursor: pointer;
   overflow: hidden;
   z-index: 3;
@@ -838,7 +838,6 @@ h1 {
   display: inline-block;
   width: 85%;
   border: 1px solid #333;
-  border-radius: 2px;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
@@ -864,12 +863,13 @@ h1 {
   background-color: rgba(255, 255, 255, 0);
   width: 100%;
   height: 100%;
-  transition: all 0.25s ease-in-out;
+  left: 0%;
+  transition: background-color 0.4s ease-in-out, left 0s linear 0.4s;
 }
 .main-menu .menu ul {
   display: inline-block;
   list-style: none;
-  padding: 1rem 3rem 3rem 5rem;
+  padding: 9rem 3rem 3rem 5rem;
   margin: 0;
   height: 100%;
   width: 20rem;
@@ -880,7 +880,17 @@ h1 {
   letter-spacing: 0.2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+.main-menu .menu ul:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 1px;
+  background-image: linear-gradient(to right, #e6e8e7, #f8931d, #636363);
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .main-menu .menu ul {
@@ -918,10 +928,15 @@ h1 {
   content: "";
   position: absolute;
   width: 100%;
-  border-bottom: 1px solid #b1b1b1;
-  border-top: 1px solid black;
+  border-bottom: 1px solid #afafaf;
+  border-top: 1px solid #222222;
   left: 0;
   bottom: -1rem;
+}
+@media screen and (max-height: 400px) {
+  .main-menu .menu ul li:after {
+    bottom: -0.2rem;
+  }
 }
 .main-menu--open .main-menu__burger {
   transition: all 0.25s ease-in-out;
@@ -950,10 +965,21 @@ h1 {
 .main-menu--open .menu__cover {
   left: -100%;
   background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color 1s ease-out, left 0s linear 0s;
 }
 
 @media screen and (min-width: 576px) {
   .logo img {
     height: 12rem;
+  }
+
+  .main-menu__burger {
+    top: 2.7rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-menu__burger {
+    left: -6rem;
+    top: 2.9rem;
   }
 }

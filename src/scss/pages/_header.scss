@@ -23,13 +23,13 @@
     user-select: none;
 
     &__burger{
-        left: -6rem;
+        left: -5rem;
         top: 2rem;
         position: relative;
         font-size: 0;
         display: inline-block;
-        width: 5rem;
-        height: 5rem;
+        width: 4rem;
+        height: 4rem;
         cursor: pointer;
         overflow: hidden;
         z-index: 3;
@@ -47,7 +47,7 @@
             display: inline-block;
             width: 85%;
             border: 1px solid $text-color;
-            border-radius: 2px;
+            // border-radius: 2px;
             transform: translate(-50%, -50%);
             left: 50%;
             top: 50%;
@@ -77,14 +77,16 @@
             background-color: rgba(255, 255, 255, 0);
             width: 100%;
             height: 100%;
-            @include tr;
+            left: 0%;
+            transition: background-color .4s ease-in-out, left 0s linear .4s;
         }
 
         & ul{
             display: inline-block;
             list-style: none;
-            padding: 1rem 3rem 3rem 5rem;
+            padding: 9rem 3rem 3rem 5rem;
             margin: 0;
+            // position: relative;
             height: 100%;
             width: 20rem;
             background-color: $menu-color;
@@ -94,7 +96,20 @@
             letter-spacing: .2rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: space-between;
+            // border-left: 1px solid $support-color;
+
+            &:after{
+                content: "";
+                position: absolute;
+                display: inline-block;
+                height: 100%;
+                left: 0;
+                top: 0;
+                width: 1px;
+                background-image: linear-gradient(to right, $support-color, $brand-color, $menu-color);
+
+            }
 
             @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
                 & {
@@ -136,10 +151,16 @@
                     content: "";
                     position: absolute;
                     width: 100%;
-                    border-bottom: 1px solid rgb(177, 177, 177);
-                    border-top: 1px solid black;
+                    border-bottom: 1px solid rgb(175, 175, 175);
+                    border-top: 1px solid rgb(34, 34, 34);
                     left: 0;
                     bottom: -1rem;
+
+                    @media screen and (max-height: 400px){
+                        & {
+                            bottom: -0.2rem;
+                        }
+                    }
                 }
 
             }
@@ -182,6 +203,7 @@
             &__cover{
                 left: -100%;
                 background-color: rgba(0, 0, 0, 0.3);
+                transition: background-color 1s ease-out, left 0s linear 0s;
             }
         }
     }
@@ -193,10 +215,23 @@
             height: 12rem;
         }
     }
+
+    .main-menu{
+    
+        &__burger{
+            top: 2.7rem;
+        }
+    }
 }
 
 @media screen and (min-width: 768px){
+    .main-menu{
     
+        &__burger{
+            left: -6rem;
+            top: 2.9rem;
+        }
+    }
 }
 
 @media screen and (min-width: 992px){

@@ -1,9 +1,12 @@
-export default function mainMenu(){
+export function mainMenu(){
     'use strict';
+
     let scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    let body = document.body.querySelector('.body');
     let menu = document.querySelector('.main-menu');
-    document.querySelector('.main-menu__burger').addEventListener('click', function(){
+    menu.addEventListener('click', function(e){
+
+        if(!(e.target.closest('.main-menu__burger') || e.target.closest('.menu__cover'))) return;
+
         menu.classList.toggle('main-menu--open');
         if(document.body.style.overflow){
             document.body.style.overflow = "";

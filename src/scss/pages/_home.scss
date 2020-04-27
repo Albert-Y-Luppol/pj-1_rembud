@@ -130,6 +130,14 @@
                    text-shadow: 1px 1px 0 $support-color;
                 }
 
+                // &:nth-child(1),
+                // &:nth-child(3){
+                //     text-align: right;
+                // }
+                // &:nth-child(2), &:nth-child(4){
+                //     text-align: left;
+                // }
+
                 & a{
                     padding: 0 1rem 0 1rem;
                     letter-spacing: .1rem;

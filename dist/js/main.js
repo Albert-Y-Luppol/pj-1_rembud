@@ -461,6 +461,18 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 
 /***/ }),
 
+/***/ "./src/js/libs/polyfills.js":
+/*!**********************************!*\
+  !*** ./src/js/libs/polyfills.js ***!
+  \**********************************/
+/*! exports provided: polyfills */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"polyfills\", function() { return polyfills; });\nfunction polyfills() {\n  'use strict'; //closest polyfill for IE\n\n  if (!Element.prototype.matches) {\n    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;\n  }\n\n  if (!Element.prototype.closest) {\n    Element.prototype.closest = function (s) {\n      var el = this;\n\n      do {\n        if (Element.prototype.matches.call(el, s)) return el;\n        el = el.parentElement || el.parentNode;\n      } while (el !== null && el.nodeType === 1);\n\n      return null;\n    };\n  }\n}\n;\n\n//# sourceURL=webpack:///./src/js/libs/polyfills.js?");
+
+/***/ }),
+
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
@@ -469,7 +481,7 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _scripts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts */ \"./src/js/scripts.js\");\n__webpack_require__(/*! ../scss/styles.scss */ \"./src/scss/styles.scss\"); // function importAll(r) {\n//     return r.keys().map(r);\n// }\n// const images = importAll(require.context('../img', true, /\\.(png|jpe?g|svg|ico)$/));\n\n\nif (module && module.hot) module.hot.accept();\n\nObject(_scripts__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _scripts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts */ \"./src/js/scripts.js\");\n/* harmony import */ var _libs_polyfills__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./libs/polyfills */ \"./src/js/libs/polyfills.js\");\n__webpack_require__(/*! ../scss/styles.scss */ \"./src/scss/styles.scss\"); // function importAll(r) {\n//     return r.keys().map(r);\n// }\n// const images = importAll(require.context('../img', true, /\\.(png|jpe?g|svg|ico)$/));\n\n\nif (module && module.hot) module.hot.accept();\n\n\nObject(_libs_polyfills__WEBPACK_IMPORTED_MODULE_1__[\"polyfills\"])();\nObject(_scripts__WEBPACK_IMPORTED_MODULE_0__[\"mainMenu\"])();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/js/main.js?");
 
 /***/ }),
 
@@ -477,11 +489,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /*!***************************!*\
   !*** ./src/js/scripts.js ***!
   \***************************/
-/*! exports provided: default */
+/*! exports provided: mainMenu */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return mainMenu; });\nfunction mainMenu() {\n  'use strict';\n\n  var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;\n  var body = document.body.querySelector('.body');\n  var menu = document.querySelector('.main-menu');\n  document.querySelector('.main-menu__burger').addEventListener('click', function () {\n    menu.classList.toggle('main-menu--open');\n\n    if (document.body.style.overflow) {\n      document.body.style.overflow = \"\";\n      document.body.style.marginRight = \"\";\n    } else {\n      document.body.style.overflow = \"hidden\";\n      document.body.style.marginRight = scrollbarWidth + \"px\";\n    }\n  });\n}\n;\n\n//# sourceURL=webpack:///./src/js/scripts.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"mainMenu\", function() { return mainMenu; });\nfunction mainMenu() {\n  'use strict';\n\n  var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;\n  var menu = document.querySelector('.main-menu');\n  menu.addEventListener('click', function (e) {\n    if (!(e.target.closest('.main-menu__burger') || e.target.closest('.menu__cover'))) return;\n    menu.classList.toggle('main-menu--open');\n\n    if (document.body.style.overflow) {\n      document.body.style.overflow = \"\";\n      document.body.style.marginRight = \"\";\n    } else {\n      document.body.style.overflow = \"hidden\";\n      document.body.style.marginRight = scrollbarWidth + \"px\";\n    }\n  });\n}\n;\n\n//# sourceURL=webpack:///./src/js/scripts.js?");
 
 /***/ }),
 

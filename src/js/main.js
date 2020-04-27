@@ -9,6 +9,10 @@ require('../scss/styles.scss');
 
 if(module && module.hot) module.hot.accept();
 
-import mainMenu from './scripts';
+import {mainMenu} from './scripts';
+
+import {polyfills} from './libs/polyfills';
+
+polyfills();
 
 mainMenu();
