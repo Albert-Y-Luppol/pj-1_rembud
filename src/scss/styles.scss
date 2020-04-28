@@ -100,7 +100,6 @@ h1{
     }
 }
 
-
 .scroll{
     position: absolute;
     bottom: 5%;
@@ -113,7 +112,7 @@ h1{
 
     & svg{
         position: absolute;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) rotate(180deg);
         left: 50%;
         top: 53%;
         @include tr;
@@ -137,7 +136,6 @@ h1{
         height: 100%;
     }
 }
-
 
 .svg-sprite{
     display: none;
