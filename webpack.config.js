@@ -8,18 +8,35 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 
 function generateHtmlPlugins(templateDir) {
-    const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
-    return templateFiles.map(item => {
-        const parts = item.split('.');
-        const name = parts[0];
-        const extension = parts[1];
-        return new HtmlWebpackPlugin({
-            filename: `html/${name}.html`,
-            template: path.resolve(__dirname, `${templateDir}`,`${name}.${extension}`),
-            inject: false,
-        })
-    })
+    
+    let plugins = [];
+
+    dirTraversal(templateDir)
+
+    return plugins;
+
+    function dirTraversal(templateDir, addPath = '/'){
+        const templateElements = fs.readdirSync(path.resolve(__dirname, templateDir));
+        
+        templateElements.forEach(item => {
+
+            if(fs.lstatSync(path.resolve(__dirname, templateDir, item)).isDirectory()){
+                dirTraversal(templateDir + '/' + item, addPath + `${item}/`);
+            } else {
+                const parts = item.split('.');
+                const name = parts[0];
+                const extension = parts[1];
+        
+                plugins.push(new HtmlWebpackPlugin({
+                    filename: `html${addPath}${name}.html`,
+                    template: path.resolve(__dirname, `${templateDir}`,`${name}.${extension}`),
+                    inject: false,
+                }));
+            }
+        });
+    }
 }
+
 
 
 
@@ -143,7 +160,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         open: true,
-        openPage: ['html/home.html'],
+        openPage: ['html/ru/home.html'],
         // hot: true,
         watchContentBase: true,
         writeToDisk: true,

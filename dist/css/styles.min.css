@@ -871,6 +871,7 @@ h1 {
   list-style: none;
   padding: 9rem 3rem 3rem 5rem;
   margin: 0;
+  position: relative;
   height: 100%;
   width: -webkit-min-content;
   width: -moz-min-content;
@@ -897,37 +898,37 @@ h1 {
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .main-menu .menu ul {
-    padding-top: 3rem;
+    padding-top: 5rem;
   }
 }
 @supports (-ms-ime-align: auto) {
   .main-menu .menu ul {
-    padding-top: 3rem;
+    padding-top: 5rem;
   }
 }
-.main-menu .menu ul li {
+.main-menu .menu ul li:not(.lang) {
   position: relative;
 }
-.main-menu .menu ul li a {
+.main-menu .menu ul li:not(.lang) a {
   display: inline-block;
   width: 100%;
   transition: all 0.25s ease-in-out;
 }
-.main-menu .menu ul li a:hover, .main-menu .menu ul li a:focus, .main-menu .menu ul li a:active {
+.main-menu .menu ul li:not(.lang) a:hover, .main-menu .menu ul li:not(.lang) a:focus, .main-menu .menu ul li:not(.lang) a:active {
   color: #f8931d;
   text-shadow: 1px 1px 0px black;
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .main-menu .menu ul li a {
+  .main-menu .menu ul li:not(.lang) a {
     padding: 4rem 0 0.5rem 0;
   }
 }
 @supports (-ms-ime-align: auto) {
-  .main-menu .menu ul li a {
+  .main-menu .menu ul li:not(.lang) a {
     padding: 4rem 0 0.5rem 0;
   }
 }
-.main-menu .menu ul li:after {
+.main-menu .menu ul li:not(.lang):after {
   content: "";
   position: absolute;
   width: 100%;
@@ -937,7 +938,7 @@ h1 {
   bottom: -1rem;
 }
 @media screen and (max-height: 400px) {
-  .main-menu .menu ul li:after {
+  .main-menu .menu ul li:not(.lang):after {
     bottom: -0.2rem;
   }
 }
@@ -968,6 +969,35 @@ h1 {
   transition: background-color 1s ease-out, left 0s linear 0s;
 }
 
+.lang {
+  position: absolute;
+  top: 2.8rem;
+  left: 3rem;
+  vertical-align: middle;
+  display: inline-block;
+}
+.lang a {
+  border: none;
+  background: none;
+  text-shadow: 2px 2px 0px #333, 1px 1px 0px #333;
+  font-weight: 500;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.lang a:not(.disabled-menu-link) {
+  transform: scale(1);
+  transition: all 0.25s ease-in-out;
+}
+.lang a:not(.disabled-menu-link):hover, .lang a:not(.disabled-menu-link):focus, .lang a:not(.disabled-menu-link):active {
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+.lang a.disabled-menu-link {
+  cursor: default;
+  color: grey;
+  pointer-events: none;
+}
+
 @media screen and (min-width: 576px) {
   .logo img {
     height: 12rem;
@@ -976,10 +1006,18 @@ h1 {
   .main-menu__burger {
     top: 2.7rem;
   }
+
+  .lang {
+    top: 3.5rem;
+  }
 }
 @media screen and (min-width: 768px) {
   .main-menu__burger {
     left: -6rem;
     top: 2.9rem;
+  }
+
+  .lang {
+    top: 3.7rem;
   }
 }
