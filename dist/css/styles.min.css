@@ -975,6 +975,7 @@ h1 {
   left: 3rem;
   vertical-align: middle;
   display: inline-block;
+  cursor: default;
 }
 .lang a {
   border: none;
