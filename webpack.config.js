@@ -153,7 +153,7 @@ module.exports = {
     ].concat(htmlPlugins),
 
     devServer: {
-        host: '192.168.0.102',
+        host: '192.168.0.187',
         // disableHostCheck: true,
         // overlay: true,
         port: 1409,

@@ -30,7 +30,7 @@ body {
     position: relative;
     min-height: 100%;
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .container {
@@ -174,3 +174,5 @@ h1{
 @import 'pages/home';
 
 @import 'pages/header';
+
+@import 'pages/footer';
