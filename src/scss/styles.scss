@@ -1,8 +1,10 @@
-@import 'normalize';
+@import 'lib/fonts';
 
-@import 'variables';
+@import 'lib/normalize';
 
-@import 'mixins';
+@import 'lib/variables';
+
+@import 'lib/mixins';
 
 * {
     box-sizing: border-box;
@@ -171,8 +173,4 @@ h1{
 //     }
 // }
 
-@import 'pages/home';
-
-@import 'pages/header';
-
-@import 'pages/footer';
+@import 'lib/header';

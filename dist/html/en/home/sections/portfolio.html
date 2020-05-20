@@ -1,0 +1,16 @@
+<div class="section" id="portfolio">
+    <h1>portfolio</h1>
+</div>
+
+<script>
+
+    function insertPortfolio(){
+        let url='sections/contacts.html';
+
+        fetch(url)
+            .then(response=>response.text())
+            .then((html)=>{
+                document.body.querySelector('.body').insertAdjacentHTML('beforeend',html);
+            });
+    }
+</script>

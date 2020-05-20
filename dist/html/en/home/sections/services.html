@@ -1,0 +1,26 @@
+<div class="section" id="services">
+    <h1>Services</h1>
+    <img src="https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg" alt="">
+</div>
+
+<script>
+    document.addEventListener('readystatechange', function checkReadyness(){
+        if (document.readyState == 'complete'){
+            insertPortfolio();
+        } else {
+            document.addEventListener('readystatechange', checkReadyness(), {once: true});
+        }
+    }, {once: true});
+
+    function insertPortfolio(){
+        let url='sections/portfolio.html';
+
+        fetch(url)
+            .then(response=>response.text())
+            .then((html)=>{
+                document.body.querySelector('.body').insertAdjacentHTML('beforeend',html);
+            });
+    }
+</script>
+
+<link rel="stylesheet" href='../../../css/pages/home/services.min.css'>

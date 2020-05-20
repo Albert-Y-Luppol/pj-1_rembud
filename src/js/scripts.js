@@ -1,27 +1,33 @@
-export function mainMenu(){
-    'use strict';
 
-    let scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    let menu = document.querySelector('.main-menu');
-    let menuWidth = menu.querySelector('.menu>ul').getBoundingClientRect().width;
+//= ./lib/_polyfills.js
 
-    if(menuWidth > 250) menuWidth = 250;
+insertReusableComponents();
 
-    menu.addEventListener('click', function(e){
+// functions
 
-        if(!(e.target.closest('.main-menu__burger') || e.target.closest('.menu__cover'))) return;
 
-        menu.classList.toggle('main-menu--open');
-        if(document.body.style.overflow){
-            document.body.style.overflow = "";
-            document.body.style.marginRight = "";
-            
-            menu.querySelector('.menu').style.left = '';
-        } else {
-            document.body.style.overflow = "hidden";
-            document.body.style.marginRight = scrollbarWidth + "px";
-           
-            menu.querySelector('.menu').style.left = -menuWidth + scrollbarWidth + 'px';
-        }
-    });
+function insertReusableComponents(){
+    insertSvgSprite();
+    insertMenu();
+}
+
+function insertSvgSprite(){
+    let url='../../parts/svg-sprite.html'
+
+    fetch(url)
+        .then(response=>response.text())
+        .then((html)=>{
+            document.body.querySelector('.body').insertAdjacentHTML('beforeend',html);
+        });
+}
+
+function insertMenu(){
+    let url='../parts/header.html'
+
+    fetch(url)
+        .then(response=>response.text())
+        .then((html)=>{
+            document.body.querySelector('.body').insertAdjacentHTML('afterbegin',html);
+            //= ./lib/_menu
+        });
 };

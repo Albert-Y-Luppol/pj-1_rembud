@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    //= ../../includes/_head.html
+
+    <title>| RemBud MGM</title>
+</head>
+<body>
+    <div class="body">
+        <!-- <//%= _.template(require('./../../../includes/header/en/header.html').default)() %> -->
+
+        //= ../../includes/home/en/_hero.html
+        //= ../../includes/home/_svg-sprite.html
+        //= ../../includes/_foot.html
+
+        <!-- <//%= _.template(require('./../../../includes/svg-sprite.html').default)() %> -->
+    </div>
+
+    <script>
+        function insertServices(){
+            let url='sections/services.html';
+
+            fetch(url)
+                .then(response=>response.text())
+                .then((html)=>{
+                    document.body.querySelector('.body').insertAdjacentHTML('beforeend',html);
+                });
+        }
+
+        window.addEventListener('load', insertServices);
+    </script>
+</body>
+</html>
