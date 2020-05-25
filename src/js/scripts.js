@@ -1,5 +1,5 @@
 
-//= ./lib/_polyfills.js
+//= ./scripts/_polyfills.js
 
 insertReusableComponents();
 
@@ -28,6 +28,6 @@ function insertMenu(){
         .then(response=>response.text())
         .then((html)=>{
             document.body.querySelector('.body').insertAdjacentHTML('afterbegin',html);
-            //= ./lib/_menu
+            //= ./scripts/_menu
         });
 };

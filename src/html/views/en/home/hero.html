@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    //= ../../includes/_head.html
+
+    <title>| RemBud MGM</title>
+</head>
+<body>
+    <div class="body">
+
+        //= ../../includes/en/home/_hero.html
+        //= ../../includes/_foot.html
+
+    </div>
+
+    <script>
+
+        
+        window.addEventListener('load', insertPage, {once: true});
+
+        function insertPage(){
+
+            let url='page.html';
+
+            fetch(url)
+                .then(response=>response.text())
+                .then((html)=>{
+                    document.body.querySelector('.body').insertAdjacentHTML('beforeend',html);
+
+                    let script = document.createElement('script');
+                    script.src = '../../../js/pages/home.min.js';
+                    document.body.append(script);
+                    
+                    insertFooter();
+                });
+        }
+
+        function insertFooter(){
+            let url='../../parts/footer.html';
+
+            fetch(url)
+                .then(response=>response.text())
+                .then((html)=>{
+                    document.body.querySelector('.body').insertAdjacentHTML('beforeend',html);
+
+                    let script = document.createElement('script'),
+                        gsapPlugin =  document.createElement('script');
+
+                    gsapPlugin.src = '../../../js/lib/gsap.min.js';
+
+                    gsapPlugin.onload = ()=>{
+                        script.src = '../../../js/pages/footer.min.js';
+                    };
+
+                    document.body.append(gsapPlugin);
+                    document.body.append(script);
+                });
+        }
+    </script>
+</body>
+</html>

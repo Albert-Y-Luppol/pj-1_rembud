@@ -78,6 +78,7 @@ gulp.task('img', gulp.series( function() {
         .pipe(browserSync.stream());
 }));
 
+
 gulp.task('clean', function (){
     return gulp.src('dist', {allowEmpty: true}).pipe(clean());
 });
@@ -88,7 +89,7 @@ gulp.task('serve', gulp.series('html', 'sass', 'js', 'img', 'fonts', function() 
 
     browserSync.init({
         server: "./dist",
-        startPath: "/html/en/home/home.html"
+        startPath: "/html/en/home/hero.html"
     });
 
     gulp.watch("./src/html/**/*.html",  gulp.parallel('html'));
