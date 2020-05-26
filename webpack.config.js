@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
-const isDevelopment = true; //process.env.NODE_ENV === 'development'
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 
 module.exports = {
@@ -20,7 +20,9 @@ module.exports = {
         contact: './contact.js',
     },
     plugins: [
-        // new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: ['**/*']}),
+        //dev only-------------------------------------------------------------------------
+        // new CleanWebpackPlugin(),
+        //--------------------------------------------------------------------------------
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
             chunkFilename: 'css/[name].css'
