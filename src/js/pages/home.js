@@ -1,5 +1,6 @@
 require('../modules/polyfills')();
 require('../modules/menu')();
+require('../modules/lazyLoad')();
 
 
 
