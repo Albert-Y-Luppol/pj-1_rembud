@@ -20,7 +20,7 @@ module.exports = {
         contact: './contact.js',
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        // new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: ['**/*']}),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
             chunkFilename: 'css/[name].css'
