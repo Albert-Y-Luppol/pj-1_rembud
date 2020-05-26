@@ -55,12 +55,19 @@ module.exports = {
             chunks: ['contact'],
             filename: 'html/en/contact.html'
         }),
-        new webpack.ProvidePlugin({
-            _: "underscore"
-        }),
     ],
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
             {
                 test: /\.html$/,
                 use: [
@@ -155,6 +162,16 @@ module.exports = {
                     },
                     'css-loader',
                     {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: ()=>[
+                                require('postcss-preset-env')({  
+                                    autoprefixer: { grid: true }   
+                                }),
+                            ]
+                        }
+                    },
+                    {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: isDevelopment
@@ -189,5 +206,22 @@ module.exports = {
             chunks: 'all',
             minSize: 5000,
         }
+    },
+    //dev only -------------------------------------------------
+    devtool: 'inline-source-map',
+    //-----------------------------------------------------------
+    devServer: {
+        host: '192.168.0.187',
+        disableHostCheck: true,
+        // overlay: true,
+        port: 1406,
+        contentBase: './dist',//contentBase: path.join(__dirname, 'dist'),
+        // contentBasePublicPath: 'dist',
+        compress: true,
+        open: true,
+        openPage: ['html/en/home.html'],
+        // hot: true,
+        watchContentBase: true,
+        writeToDisk: true,
     },
 };

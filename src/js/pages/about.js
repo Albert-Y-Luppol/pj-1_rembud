@@ -6,4 +6,4 @@ import ( /* webpackPrefetch: true, webpackChunkName: "footer" */ '../modules/foo
 });
 
 import '../../scss/global';
-import '../../scss/pages/about/page.module';
+import '../../scss/pages/about/page';
