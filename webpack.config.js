@@ -34,6 +34,18 @@ module.exports = {
             favicon: '../../img/favicon/favicon.ico'
         }),
         new HtmlWebpackPlugin({
+            chunks: ['home'],
+            filename: 'html/ru/home.html',
+            template: '../../templates/pages/ru/home/home.ejs',
+            favicon: '../../img/favicon/favicon.ico'
+        }),
+        new HtmlWebpackPlugin({
+            chunks: ['home'],
+            filename: 'html/ua/home.html',
+            template: '../../templates/pages/ua/home/home.ejs',
+            favicon: '../../img/favicon/favicon.ico'
+        }),
+        new HtmlWebpackPlugin({
             chunks: ['about'],
             filename: 'html/en/about.html',
         }),
