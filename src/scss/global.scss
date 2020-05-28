@@ -6,6 +6,8 @@
 
 @import 'lib/mixins';
 
+@import 'lib/swiper';
+
 * {
     box-sizing: border-box;
     outline: none;
@@ -43,6 +45,7 @@ body {
     height: 100%;
     position: relative;
     padding: 0 1rem;
+    overflow: hidden;
 }
 
 .section{
@@ -77,6 +80,18 @@ h1{
     text-transform: uppercase;
     @include font(2.5rem, $text-color, 700, $title-ff, 1.8);
     letter-spacing: .2rem;
+}
+
+h2{
+
+}
+
+h3{
+    @include font(2.5rem, $text-color, 700, $title-ff, 1.8);
+}
+
+h4{
+    @include font(1.8rem, $text-color, 600, $title-ff, 1.2);
 }
 
 .btn{
