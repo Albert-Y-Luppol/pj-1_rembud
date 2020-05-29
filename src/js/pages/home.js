@@ -61,3 +61,20 @@ function updateSlider(){
   };
   servicesSlider.params.speed= 2000;
 }
+
+
+
+let portfolioSlider = new Swiper('.portfolio-slider', {
+  grabCursor: true,
+  speed: 700,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: '.portfolio-pagination',
+    clickable: true,
+  },
+});
+
