@@ -1,1 +1,108 @@
-// hi there
+.bg__contact {
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.contact {
+  &__info-box {
+    // font-size: 2%;
+    position: absolute;
+    width: 320px;
+    height: 70vh;
+    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
+    background: #fff;
+    box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.2),
+      0px 5vh 5vh -2vh rgba(0, 0, 0, 0.5);
+  }
+
+  &__info {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 300px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    padding: 1rem;
+    // border: 2px solid $brand-color;
+    box-shadow: inset 0px 0px 5rem $brand-color;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    & a {
+      border-bottom: 1px solid rgba(0, 0, 0, 0);
+      @include tr;
+      &:hover {
+        border-bottom: 1px solid $brand-color;
+      }
+    }
+
+    &:before {
+      content: "";
+      z-index: -1;
+      display: inline-block;
+      position: absolute;
+      width: calc(100% - 2rem);
+      height: calc(100% - 2rem);
+      left: 1rem;
+      top: 1rem;
+      border: 1px solid $title-color;
+    }
+  }
+
+  &__title {
+    font-family: $text-ff;
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  &__tel {
+    // display: flex;
+    // justify-content: space-between;
+    padding: 0 2rem;
+    padding-bottom: 0.7rem;
+
+    &--position {
+      display: inline-block;
+      width: 40%;
+      white-space: nowrap;
+    }
+  }
+
+  &__mail {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 900;
+
+    & a {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__address {
+    text-align: center;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .contact {
+    &__info-box {
+      font-size: 1rem;
+    }
+  }
+}
